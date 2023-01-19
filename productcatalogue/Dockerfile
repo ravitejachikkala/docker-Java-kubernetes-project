@@ -1,4 +1,7 @@
 FROM openjdk:8-jre
+COPY pom.xml .
+ENV MAVEN_CONFIG=''
+RUN mvn clean install
 ADD target/productcatalogue-0.0.1-SNAPSHOT.jar app.jar
 ADD product-catalogue.yml app-config.yml
 EXPOSE 8020
